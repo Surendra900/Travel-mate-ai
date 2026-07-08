@@ -1,0 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #020617;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(14, 165, 233, 0.16), transparent 28%),
+    radial-gradient(circle at 90% 15%, rgba(239, 68, 68, 0.11), transparent 24%),
+    linear-gradient(rgba(15, 23, 42, 0.8) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.8) 1px, transparent 1px),
+    #020617;
+  background-size: auto, auto, 36px 36px, 36px 36px, auto;
+  color: #e5f4ff;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+.glass {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  box-shadow: 0 18px 60px rgba(2, 6, 23, 0.45);
+  backdrop-filter: blur(12px);
+}
+
+.danger-glass {
+  background: rgba(69, 10, 10, 0.45);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  box-shadow: 0 18px 60px rgba(127, 29, 29, 0.22);
+}
+
+.low-glass {
+  background: rgba(20, 83, 45, 0.22);
+  border: 1px solid rgba(132, 204, 22, 0.25);
+}
+
+.input {
+  width: 100%;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(15, 23, 42, 0.85);
+  color: #e2e8f0;
+  outline: none;
+  padding: 0.75rem 0.9rem;
+}
+
+.input:focus {
+  border-color: rgba(34, 211, 238, 0.7);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+}
+
+.btn-primary {
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, #06b6d4, #2563eb);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn-primary:hover, .btn-danger:hover, .btn-soft:hover, .btn-low:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.btn-danger {
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: 800;
+}
+
+.btn-low {
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, #84cc16, #16a34a);
+  color: #052e16;
+  padding: 0.75rem 1rem;
+  font-weight: 800;
+}
+
+.btn-soft {
+  border-radius: 0.85rem;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  color: #cbd5e1;
+  padding: 0.72rem 1rem;
+  font-weight: 700;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.72);
+  padding: 0.32rem 0.65rem;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+.section-title {
+  font-size: clamp(2rem, 6vw, 4.3rem);
+  line-height: 0.96;
+  font-weight: 950;
+  letter-spacing: -0.06em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+:focus-visible {
+  outline: 3px solid rgba(34, 211, 238, 0.95);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: initial;
+  margin: initial;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile-first polish for hackathon demos on phones */
+html, body, #root {
+  overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+  main {
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
+    padding-top: 1.25rem !important;
+  }
+
+  .section-title {
+    font-size: clamp(2.65rem, 16vw, 4rem);
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+  }
+
+  .glass,
+  .danger-glass,
+  .low-glass {
+    border-radius: 1.25rem !important;
+    padding: 1rem !important;
+  }
+
+  .btn-primary,
+  .btn-danger,
+  .btn-soft,
+  .btn-low {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .input {
+    min-height: 46px;
+    font-size: 16px;
+  }
+
+  .badge {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .fixed.inset-0 {
+    align-items: start;
+    padding: 0.65rem !important;
+  }
+
+  .fixed.inset-0 > .glass {
+    max-height: 96vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 1.25rem !important;
+  }
+
+  .shadow-glow {
+    box-shadow: 0 12px 40px rgba(2, 6, 23, 0.45);
+  }
+}
+
+.input[type="date"] {
+  color-scheme: dark;
+  min-height: 3rem;
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.35rem;
+  background-color: rgba(34, 211, 238, 0.2);
+  filter: invert(1);
+}
+
+@media (max-width: 640px) {
+  .fixed.bottom-5.left-5,
+  .fixed.bottom-4.right-4,
+  .fixed.bottom-5.right-5 {
+    bottom: 0.85rem !important;
+  }
+
+  .fixed.bottom-5.left-5 {
+    left: 0.85rem !important;
+  }
+
+  .fixed.bottom-4.right-4,
+  .fixed.bottom-5.right-5 {
+    right: 0.85rem !important;
+  }
+}
+
+/* Refined responsive and modern form controls */
+.date-input {
+  appearance: none;
+  background:
+    linear-gradient(135deg, rgba(34, 211, 238, 0.13), rgba(37, 99, 235, 0.08)),
+    rgba(15, 23, 42, 0.9) !important;
+  border: 1px solid rgba(103, 232, 249, 0.45) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 30px rgba(2, 6, 23, 0.18);
+  letter-spacing: 0.01em;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  background-color: rgba(34, 211, 238, 0.26) !important;
+  border: 1px solid rgba(103, 232, 249, 0.45);
+}
+
+@media (max-width: 768px) {
+  .fixed.bottom-3.right-3 {
+    right: 0.65rem !important;
+    bottom: 0.65rem !important;
+    transform: scale(0.92);
+    transform-origin: bottom right;
+  }
+
+  .fixed.bottom-3.right-3 .rounded-2xl {
+    max-width: 76vw;
+  }
+
+  table, .overflow-y-auto, .overflow-x-auto {
+    max-width: 100%;
+  }
+
+  .grid {
+    min-width: 0;
+  }
+
+  .glass, .danger-glass, .low-glass {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  main {
+    max-width: 100vw;
+  }
+}

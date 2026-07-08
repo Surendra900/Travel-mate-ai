@@ -1,0 +1,9 @@
+{
+  "name": "TravelMate AI",
+  "short_name": "TravelMate",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#06b6d4",
+  "description": "Emergency-first travel copilot with offline saved plans."
+}
