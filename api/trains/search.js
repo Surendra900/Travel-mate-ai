@@ -66,14 +66,12 @@ export default async function handler(req, res) {
       raw: compactRaw(payload)
     })
   } catch (error) {
-    return res.status(200).json({
-      ok: true,
-      mode: 'fallback',
-      provider: 'RapidAPI IRCTC + local route dataset',
-      sourceBadge: 'Fallback estimate',
-      message: `${error.message}. ${fallbackNote}`,
-      results: [],
-      error: error.code || error.status || 'TRAIN_SEARCH_ERROR'
-    })
-  }
+  console.error("RapidAPI Error:", error);
+
+  return res.status(500).json({
+    ok: false,
+    mode: "error",
+    message: error.message,
+    error: error.stack
+  });
 }
