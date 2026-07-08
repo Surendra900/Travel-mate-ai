@@ -44,6 +44,10 @@ export default async function handler(req, res) {
     let payload
     let message
     if (fromStationCode && toStationCode) {
+      console.log("Request Query:", req.query);
+      console.log("From:", fromStationCode);
+      console.log("To:", toStationCode);
+      console.log("Date:", date);
       payload = await callRapidRail('/api/v3/trainBetweenStations', { fromStationCode, toStationCode, dateOfJourney: date })
       message = `Live trains between ${fromStationCode} and ${toStationCode} loaded.`
     } else if (searchText) {
